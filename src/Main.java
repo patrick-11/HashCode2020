@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        final String file = "a.txt";
+        final String file = "f.txt";
 
         //Read input file
         new Reader("input/" + file);
@@ -77,7 +77,10 @@ public class Main {
                         submittedBooks.put(book.getId(), lib.getId());
                         lib.setNumSubmittedBooks();
                     }
-
+                    else {
+                        //Decrement by one "book" because we did not find a book to submit
+                        d--;
+                    }
                     lib.getBooks().remove(book);
                 }
             }
