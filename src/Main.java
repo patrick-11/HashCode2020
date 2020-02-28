@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        final String file = "b.txt";
+        final String file = "a.txt";
 
         //Read input file
         new Reader("input/" + file);

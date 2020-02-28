@@ -20,6 +20,7 @@ public class Writer {
             }
             bw.write(newLine);
         }
+        
         bw.close();
     }
 }

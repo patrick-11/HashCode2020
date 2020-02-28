@@ -33,6 +33,7 @@ public class Reader {
             Library library = new Library(id, numBooks, signUpDays, shipBooksPerDay, books);
             Main.libraries.add(library);
         }
+
         br.close();
     }
 }

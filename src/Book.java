@@ -7,6 +7,7 @@ public class Book {
         this.score = score;
     }
 
+
     public int getId() {
         return id;
     }
