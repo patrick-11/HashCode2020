@@ -1,6 +1,6 @@
 # HashCode2020
 
-Google Hash Code 2020 - Book Scanning - Online Quali cation Round
+Google Hash Code 2020 - Book Scanning - Online Qualification Round
 
 * **Total Score**: 22.786.939
     * **A**: 21
