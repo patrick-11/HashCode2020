@@ -12,7 +12,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        final String file = "f.txt";
+        //Choose file: a, b, c, d, e, f
+        final String file = "a.txt";
 
         //Read input file
         new Reader("input/" + file);
@@ -29,38 +30,30 @@ public class Main {
         libraries.sort(Comparator.comparingInt(Library::getTotalScore).reversed());
         libraries.sort(Comparator.comparingInt(Library::getSignUpDays));
 
-
         //Start process of scanning
         int dayOfNextSignUp = 0;
         Library library = null;
         for(int i = 0; i < totalScanningDays; i++) {
-            //System.out.println("Day: " + i);
+            System.out.println("Day: " + i);
 
             if(i == dayOfNextSignUp) {
                 //Add library to signedUpLibraries List after signUp
                 if(library != null) {
-                    libraries.remove(library);
                     library.getBooks().sort(Comparator.comparingInt(Book::getScore).reversed());
                     signedUpLibraries.add(library);
-                }
-
-                //Get next library
-                if(libraries.size() > 0) {
-                    library = libraries.get(0);
-                }
-
-                //Find library that fits in the remaining scanning days
-                while(library != null && library.getSignUpDays() > (totalScanningDays - dayOfNextSignUp)) {
                     libraries.remove(library);
-                    if(libraries.size() > 0)
-                        library = libraries.get(0);
-                    else
-                        library = null;
                 }
 
-                //Add days for the next library signUp
-                if(library != null) {
-                    dayOfNextSignUp += library.getSignUpDays();
+                while(libraries.size() > 0) {
+                    library = libraries.get(0);
+                    libraries.remove(library);
+
+                    //Check if library fits in the remaining scanning days
+                    if(library.getSignUpDays() < (totalScanningDays - dayOfNextSignUp)) {
+                        //Add days for the next library signUp
+                        dayOfNextSignUp += library.getSignUpDays();
+                        break;
+                    }
                 }
             }
 
@@ -74,8 +67,9 @@ public class Main {
                     Book book = lib.getBooks().get(0);
 
                     if(!submittedBooks.containsKey(book.getId())) {
+                        //System.out.println(lib.getId() + " " + book.getId());
                         submittedBooks.put(book.getId(), lib.getId());
-                        lib.setNumSubmittedBooks();
+                        lib.setNumSubmittedBooks(lib.getNumSubmittedBooks() + 1);
                     }
                     else {
                         //Decrement by one "book" because we did not find a book to submit
