@@ -47,8 +47,8 @@ public class Library {
         return numSubmittedBooks;
     }
 
-    public void setNumSubmittedBooks() {
-        numSubmittedBooks++;
+    public void setNumBooks(int numBooks) {
+        this.numBooks = numBooks;
     }
 
     public void setTotalScore() {
@@ -59,5 +59,9 @@ public class Library {
 
     public void setAvgValuePerBook() {
         avgValuePerBook = (double) totalScore/numBooks;
+    }
+
+    public void setNumSubmittedBooks(int numSubmittedBooks) {
+        this.numSubmittedBooks = numSubmittedBooks;
     }
 }

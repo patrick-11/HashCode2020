@@ -27,8 +27,13 @@ public class Main {
         //Sort libraries by:
         //libraries.sort(Comparator.comparingDouble(Library::getAvgValuePerBook).reversed());
         //libraries.sort(Comparator.comparingInt(Library::getShipBooksPerDay).reversed());
-        libraries.sort(Comparator.comparingInt(Library::getTotalScore).reversed());
-        libraries.sort(Comparator.comparingInt(Library::getSignUpDays));
+
+        //Best for file: a, b, d, e
+        //libraries.sort(Comparator.comparingInt(Library::getTotalScore).reversed());
+        //libraries.sort(Comparator.comparingInt(Library::getSignUpDays));
+
+        //Best for file: a, b, c, d, f
+        libraries.sort((Library l1, Library l2) -> (l2.getTotalScore()/l2.getSignUpDays()) - (l1.getTotalScore()/l1.getSignUpDays()));
 
         //Start process of scanning
         int dayOfNextSignUp = 0;
@@ -67,7 +72,6 @@ public class Main {
                     Book book = lib.getBooks().get(0);
 
                     if(!submittedBooks.containsKey(book.getId())) {
-                        //System.out.println(lib.getId() + " " + book.getId());
                         submittedBooks.put(book.getId(), lib.getId());
                         lib.setNumSubmittedBooks(lib.getNumSubmittedBooks() + 1);
                     }
@@ -83,12 +87,11 @@ public class Main {
         //Write output file
         new Writer("output/" + file);
 
-        //Prints score of the Algorithm
+        //Prints score of the algorithm
         int score = 0;
         for (Map.Entry<Integer, Integer> entry : submittedBooks.entrySet()) {
             score += scoreOfBooks.get(entry.getKey()).getScore();
         }
         System.out.println("Total Score: " + score);
-
     }
 }
