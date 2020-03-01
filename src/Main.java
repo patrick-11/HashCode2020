@@ -46,7 +46,6 @@ public class Main {
                 if(library != null) {
                     library.getBooks().sort(Comparator.comparingInt(Book::getScore).reversed());
                     signedUpLibraries.add(library);
-                    libraries.remove(library);
                 }
 
                 while(libraries.size() > 0) {
