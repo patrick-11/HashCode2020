@@ -35,7 +35,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         //Choose file: a, b, c, d, e, f
-        final String file = "f.txt";
+        final String file = "a.txt";
 
         //Read input file
         new Reader("input/" + file);
