@@ -10,10 +10,32 @@ public class Main {
     static List<Library> signedUpLibraries = new ArrayList<>();
     static LinkedHashMap<Integer, Integer> submittedBooks = new LinkedHashMap<>();
 
+    private static int comparator1(Library l1, Library l2) {
+        double v1 = (double) l1.getTotalScore()/l1.getSignUpDays();
+        double v2 = (double) l2.getTotalScore()/l2.getSignUpDays();
+        if(v1 == v2)
+            return 0;
+        else if(v1 < v2)
+            return 1;
+        else
+            return -1;
+    }
+
+    private static int comparator2(Library l1, Library l2) {
+        double v1 = (double) (l1.getTotalScore()*l1.getShipBooksPerDay())/l1.getSignUpDays();
+        double v2 = (double) (l2.getTotalScore()*l2.getShipBooksPerDay())/l2.getSignUpDays();
+        if(v1 == v2)
+            return 0;
+        else if(v1 < v2)
+            return 1;
+        else
+            return -1;
+    }
+
     public static void main(String[] args) throws IOException {
 
         //Choose file: a, b, c, d, e, f
-        final String file = "a.txt";
+        final String file = "f.txt";
 
         //Read input file
         new Reader("input/" + file);
@@ -27,13 +49,14 @@ public class Main {
         //Sort libraries by:
         //libraries.sort(Comparator.comparingDouble(Library::getAvgValuePerBook).reversed());
         //libraries.sort(Comparator.comparingInt(Library::getShipBooksPerDay).reversed());
-
-        //Best for file: a, b, d, e
-        //libraries.sort(Comparator.comparingInt(Library::getTotalScore).reversed());
         //libraries.sort(Comparator.comparingInt(Library::getSignUpDays));
+        //libraries.sort(Comparator.comparingInt(Library::getTotalScore).reversed());
 
         //Best for file: a, b, c, d, f
-        libraries.sort((Library l1, Library l2) -> (l2.getTotalScore()/l2.getSignUpDays()) - (l1.getTotalScore()/l1.getSignUpDays()));
+        //libraries.sort(Main::comparator1);
+
+        //Best for file: a, b, d, e,
+        //libraries.sort(Main::comparator2);
 
         //Start process of scanning
         int dayOfNextSignUp = 0;
