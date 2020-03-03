@@ -1,11 +1,18 @@
-# HashCode2020
+# Google Hash Code 2020
 
-Google Hash Code 2020 - Book Scanning - Online Qualification Round
+[Google Hash Code 2020](https://codingcompetitions.withgoogle.com/hashcode) - Book Scanning - Online Qualification Round/Extended Round
 
-* **Total Score**: 26.464.553
-    * **A**: 21
-    * **B**: 5.822.900
-    * **C**: 5.645.747
-    * **D**: 4.815.395
-    * **E**: 4.940.329
-    * **F**: 5.240.161
+## Problem Description
+
+Find it here: [Problem Statement](https://github.com/patrick-11/HashCode2020/blob/master/hashcode_2020_online_qualification_round.pdf)
+
+# Score
+
+<img src = "pictures/score.png">
+
+# Team: Pepegas
+
+Members:
+* [Patrick](https://github.com/patrick-11)
+* [Johann](https://github.com/t3nsed)
+* [Luca](https://github.com/lazzeri)
