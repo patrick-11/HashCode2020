@@ -35,7 +35,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         //Choose file: a, b, c, d, e, f
-        final String file = "a.txt";
+        final String file = "e.txt";
 
         //Read input file
         new Reader("input/" + file);
@@ -104,6 +104,16 @@ public class Main {
                     lib.getBooks().remove(book);
                 }
             }
+        }
+
+        //Remove libraries with no submitted books
+        List<Library> librariesToRemove = new ArrayList<>();
+        for(Library lib : signedUpLibraries) {
+            if(lib.getNumSubmittedBooks() == 0)
+                librariesToRemove.add(lib);
+        }
+        for(Library lib : librariesToRemove) {
+            signedUpLibraries.remove(lib);
         }
 
         //Write output file

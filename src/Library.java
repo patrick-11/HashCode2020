@@ -52,8 +52,10 @@ public class Library {
     }
 
     public void setTotalScore() {
+        totalScore = 0;
         for (int i = 0; i < books.size(); i++) {
-            totalScore += books.get(i).getScore();
+            if(!Main.submittedBooks.containsKey(books.get(i).getId()))
+                totalScore += books.get(i).getScore();
         }
     }
 
