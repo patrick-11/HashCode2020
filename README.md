@@ -6,11 +6,11 @@
 
 Find it here: [Problem Statement](https://github.com/patrick-11/HashCode2020/blob/master/hashcode_2020_online_qualification_round.pdf)
 
-# Score
+## Score
 
-<img src = "pictures/score.png">
+<img src = "pictures/score2.png">
 
-# Team: Pepegas
+## Team: Pepegas
 
 Members:
 * [Patrick](https://github.com/patrick-11)
