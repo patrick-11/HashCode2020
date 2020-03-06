@@ -4,7 +4,6 @@ public class Library {
 
     private int id, numBooks, signUpDays, shipBooksPerDay, totalScore, numSubmittedBooks;
     private List<Book> books;
-    private double avgValuePerBook;
 
     public Library(int id, int numBooks, int signUpDays, int shipBooksPerDay, List<Book> books) {
         this.id = id;
@@ -17,10 +16,6 @@ public class Library {
 
     public int getId() {
         return id;
-    }
-
-    public int getNumBooks() {
-        return numBooks;
     }
 
     public int getSignUpDays() {
@@ -39,28 +34,16 @@ public class Library {
         return totalScore;
     }
 
-    public double getAvgValuePerBook() {
-        return avgValuePerBook;
-    }
-
     public int getNumSubmittedBooks() {
         return numSubmittedBooks;
     }
 
-    public void setNumBooks(int numBooks) {
-        this.numBooks = numBooks;
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
     }
 
-    public void setTotalScore() {
-        totalScore = 0;
-        for (int i = 0; i < books.size(); i++) {
-            if(!Main.submittedBooks.containsKey(books.get(i).getId()))
-                totalScore += books.get(i).getScore();
-        }
-    }
-
-    public void setAvgValuePerBook() {
-        avgValuePerBook = (double) totalScore/numBooks;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     public void setNumSubmittedBooks(int numSubmittedBooks) {

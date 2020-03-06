@@ -35,19 +35,19 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         //Choose file: a, b, c, d, e, f
-        final String file = "e.txt";
+        final String file = "a.txt";
 
         //Read input file
         new Reader("input/" + file);
 
         //Set totalScore and avgValuePerBook;
         for(Library lib : libraries) {
-            lib.setTotalScore();
-            lib.setAvgValuePerBook();
+            for(Book book : lib.getBooks()) {
+                lib.setTotalScore(lib.getTotalScore() + book.getScore());
+            }
         }
 
         //Sort libraries by:
-        //libraries.sort(Comparator.comparingDouble(Library::getAvgValuePerBook).reversed());
         //libraries.sort(Comparator.comparingInt(Library::getShipBooksPerDay).reversed());
         //libraries.sort(Comparator.comparingInt(Library::getSignUpDays));
         //libraries.sort(Comparator.comparingInt(Library::getTotalScore).reversed());
@@ -71,9 +71,9 @@ public class Main {
                     signedUpLibraries.add(library);
                 }
 
-                while(libraries.size() > 0) {
+                while(!libraries.isEmpty()) {
                     library = libraries.get(0);
-                    libraries.remove(library);
+                    libraries.remove(0);
 
                     //Check if library fits in the remaining scanning days
                     if(library.getSignUpDays() < (totalScanningDays - dayOfNextSignUp)) {
@@ -88,7 +88,7 @@ public class Main {
                 Library lib = signedUpLibraries.get(j);
 
                 for(int d = 0; d < lib.getShipBooksPerDay(); d++) {
-                    if(lib.getBooks().size() <= 0)
+                    if(lib.getBooks().isEmpty())
                         break;
 
                     Book book = lib.getBooks().get(0);
@@ -101,7 +101,7 @@ public class Main {
                         //Decrement by one "book" because we did not find a book to submit
                         d--;
                     }
-                    lib.getBooks().remove(book);
+                    lib.getBooks().remove(0);
                 }
             }
         }
