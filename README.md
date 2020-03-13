@@ -1,6 +1,6 @@
 # Google Hash Code 2020
 
-[Google Hash Code 2020](https://codingcompetitions.withgoogle.com/hashcode) - Book Scanning - Online Qualification Round/Extended Round
+[Google Hash Code 2020](https://codingcompetitions.withgoogle.com/hashcode) - Book Scanning - Online Qualification Round/Extended Round (418th)
 
 ## Problem Description
 
